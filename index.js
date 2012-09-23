@@ -81,7 +81,7 @@ input.on('key', function(key) {
 if (process.argv.indexOf('--help') > -1 || process.argv.indexOf('-h') > -1) {
 	clanvas.use(process.stderr);
 	clanvas.write(require('fs').readFileSync(require('path').join(__dirname,'logo')));
-	clanvas.line('{green:you are using} {bold:paint} {green:version} {bold:'+require('./package.json').version+'}\n');
+	clanvas.line('{green:you are using} {bold:paint} {green:version} {bold:'+require('./package.json').version+'} by @{bold:mafintosh}\n');
 	clanvas.line('  {green:save image}     {bold:paint > myimage}');
 	clanvas.line('  {green:show image}     {bold:cat myimage}');
 	clanvas.line('  {green:save input}     {bold:paint --echo > myinput}');

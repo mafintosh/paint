@@ -3,5 +3,8 @@
 	"version":"0.1.0",
 	"bin":{
 		"paint":"./index.js"
+	},
+	"dependencies":{
+		"clivas":"0.1.x"
 	}
 }

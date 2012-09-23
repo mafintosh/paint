@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var clanvas = require('clanvas');
+var clivas = require('clivas');
 var input = require('./input');
 
 var PIPING_IN  = !process.stdin.isTTY;
@@ -22,17 +22,17 @@ var palette = 'green blue white grey cyan magenta red yellow'.split(' ');
 
 var draw = function() {
 	if (Date.now() - lastFlush > 5000) {
-		clanvas.flush();
+		clivas.flush();
 		lastFlush = Date.now();
 	}
-	clanvas.clear();
+	clivas.clear();
 	for (var i = 0; i < CANVAS_HEIGHT; i++) {
 		lines[i] = lines[i] || Array(CANVAS_WIDTH+1).join(' x').split('x');
 
 		if (cursorY === i && !PIPING_IN) {
-			clanvas.line(lines[i].slice(0,cursorX).join('')+'{inverse+'+palette[chosenColor]+':'+(shouldColor ? 'x' : 'o')+'}'+lines[i].slice(cursorX+1).join(''));
+			clivas.line(lines[i].slice(0,cursorX).join('')+'{inverse+'+palette[chosenColor]+':'+(shouldColor ? 'x' : 'o')+'}'+lines[i].slice(cursorX+1).join(''));
 		} else {
-			clanvas.line(lines[i].join(''));
+			clivas.line(lines[i].join(''));
 		}
 	}
 };
@@ -79,24 +79,24 @@ input.on('key', function(key) {
 });
 
 if (process.argv.indexOf('--help') > -1 || process.argv.indexOf('-h') > -1) {
-	clanvas.use(process.stderr);
-	clanvas.write(require('fs').readFileSync(require('path').join(__dirname,'logo')));
-	clanvas.line('{green:you are using} {bold:paint} {green:version} {bold:'+require('./package.json').version+'} by @{bold:mafintosh}\n');
-	clanvas.line('  {green:save image}     {bold:paint > myimage}');
-	clanvas.line('  {green:show image}     {bold:cat myimage}');
-	clanvas.line('  {green:save input}     {bold:paint --echo > myinput}');
-	clanvas.line('  {green:show animation} {bold:cat myinput | paint --delay}\n');
-	clanvas.line('  {cyan:arrows} to move brush');
-	clanvas.line('  {cyan:enter}  to lower/lift brush');
-	clanvas.line('  {cyan:space}  to change color');
-	clanvas.line('  {cyan:ctrl+z} to undo');
-	clanvas.line('  {cyan:ctrl+c} to exit (and save)\n');
+	clivas.use(process.stderr);
+	clivas.write(require('fs').readFileSync(require('path').join(__dirname,'logo')));
+	clivas.line('{green:you are using} {bold:paint} {green:version} {bold:'+require('./package.json').version+'} {green:by} @{bold:mafintosh}\n');
+	clivas.line('  {green:save image}     {bold:paint > myimage}');
+	clivas.line('  {green:show image}     {bold:cat myimage}');
+	clivas.line('  {green:save input}     {bold:paint --echo > myinput}');
+	clivas.line('  {green:show animation} {bold:cat myinput | paint --delay}\n');
+	clivas.line('  {cyan:arrows} to move brush');
+	clivas.line('  {cyan:enter}  to lower/lift brush');
+	clivas.line('  {cyan:space}  to change color');
+	clivas.line('  {cyan:ctrl+z} to undo');
+	clivas.line('  {cyan:ctrl+c} to exit (and save)\n');
 	process.exit(0);
 }
 
-clanvas.use(process.stderr).write('G1tIG1sySg==', 'base64');
-clanvas.flush(false);
-clanvas.cursor(false);
+clivas.use(process.stderr).write('G1tIG1sySg==', 'base64');
+clivas.flush(false);
+clivas.cursor(false);
 
 if (PIPING_OUT && !PIPING_IN_TO_OUT) {
 	process.on('exit', function() {
@@ -115,9 +115,9 @@ if (PIPING_OUT && !PIPING_IN_TO_OUT) {
 				});
 			}
 		});
-		clanvas.use(process.stdout);
-		clanvas.clear();
-		clanvas.line(lines);
+		clivas.use(process.stdout);
+		clivas.clear();
+		clivas.line(lines);
 		process.stdout.write('\n');
 	});
 }
@@ -127,7 +127,7 @@ if (PIPING_OUT && PIPING_IN_TO_OUT) {
 	});
 }
 if (PIPING_IN) {
-	clanvas.flush(true);
+	clivas.flush(true);
 }
 
 draw();

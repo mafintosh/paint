@@ -1,6 +1,9 @@
 {
 	"name":"paint",
 	"version":"0.1.0",
+	"repository":"git://github.com/mafintosh/paint",
+	"description":"paint is paint in your terminal",
+	"keywords":["paint","terminal","drawing","cli"],
 	"bin":{
 		"paint":"./index.js"
 	},

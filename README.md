@@ -2,9 +2,15 @@
 
 Paint is paint in your terminal!
 
+## How do I get it?
+
 Its available through npm:
 
 	npm install paint
+
+## How do I use it?
+
+![Paint help](http://i.imgur.com/TRXlt.png)
 
 To start a new drawing simply do:
 

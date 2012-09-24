@@ -3,12 +3,16 @@
 var clivas = require('clivas');
 var input = require('./input');
 
+var opt = function(a,b) {
+	return process.argv.indexOf('--'+a) > -1 || process.argv.indexOf('-'+b) > -1;
+};
+
 var PIPING_IN  = !process.stdin.isTTY;
 var PIPING_OUT = !process.stdout.isTTY;
-var PIPING_IN_TO_OUT = process.argv.indexOf('--echo') > -1 || process.argv.indexOf('-e') > -1;
+var PIPING_IN_TO_OUT = opt('echo', 'e');
 
-var CANVAS_WIDTH  = 80;
-var CANVAS_HEIGHT = 30;
+var CANVAS_WIDTH  = clivas.width ? clivas.width : 80;
+var CANVAS_HEIGHT = clivas.height ? clivas.height - 1 : 30;
 
 var lines = [];
 var stack = [];
@@ -78,7 +82,7 @@ input.on('key', function(key) {
 	draw();
 });
 
-if (process.argv.indexOf('--help') > -1 || process.argv.indexOf('-h') > -1) {
+if (opt('help', 'h')) {
 	clivas.use(process.stderr);
 	clivas.write(require('fs').readFileSync(require('path').join(__dirname,'logo')));
 	clivas.line('{green:you are using} {bold:paint} {green:version} {bold:'+require('./package.json').version+'} {green:by} @{bold:mafintosh}\n');

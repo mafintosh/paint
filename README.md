@@ -2,8 +2,6 @@
 
 Paint is paint in your terminal!
 
-## How do I get it?
-
 Its available through npm:
 
 	npm install -g paint
@@ -12,14 +10,8 @@ Its available through npm:
 
 ![Paint help](http://i.imgur.com/TRXlt.png)
 
-To start a new drawing simply do:
+To show the above help:
 
-	$ paint # starts a new drawing
+	$ paint --help # shows the help
 
-To save a drawing to a file do:
-
-	$ paint > my_drawing # saves the drawing you make to my_drawing
-
-For more information run
-
-	$ paint --help # print help
+Happy drawing!

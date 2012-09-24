@@ -82,8 +82,8 @@ if (process.argv.indexOf('--help') > -1 || process.argv.indexOf('-h') > -1) {
 	clivas.use(process.stderr);
 	clivas.write(require('fs').readFileSync(require('path').join(__dirname,'logo')));
 	clivas.line('{green:you are using} {bold:paint} {green:version} {bold:'+require('./package.json').version+'} {green:by} @{bold:mafintosh}\n');
-	clivas.line('  {green:save image}     {bold:paint > myimage}');
-	clivas.line('  {green:show image}     {bold:cat myimage}');
+	clivas.line('  {green:save drawing}   {bold:paint > myimage}');
+	clivas.line('  {green:show drawing}   {bold:cat myimage}');
 	clivas.line('  {green:save input}     {bold:paint --echo > myinput}');
 	clivas.line('  {green:show animation} {bold:cat myinput | paint --delay}\n');
 	clivas.line('  {cyan:arrows} to move brush');

@@ -6,7 +6,7 @@ Paint is paint in your terminal!
 
 Its available through npm:
 
-	npm install paint
+	npm install -g paint
 
 ## How do I use it?
 

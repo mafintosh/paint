@@ -108,7 +108,7 @@ if (PIPING_OUT && !PIPING_IN_TO_OUT) {
 			lines.pop();
 		}
 		for (var i = 0; i < lines.length; i++) {
-			lines[i] = lines[i].join('').trim();
+			lines[i] = lines[i].join('').replace(/\s+$/g, '');
 		}
 		lines = lines.join('\n');
 		palette.forEach(function(color) {

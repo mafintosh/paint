@@ -8,7 +8,7 @@ Its available through npm:
 
 ## How do I use it?
 
-![Paint help](http://i.imgur.com/TRXlt.png)
+![Paint help](https://raw.github.com/mafintosh/paint/master/help.png)
 
 To show the above help:
 

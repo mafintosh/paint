@@ -1,3 +1,5 @@
+var EventEmitter = require('events').EventEmitter;
+
 if (process.stdin.setRawMode) {
 	process.stdin.setRawMode(true);
 }
@@ -13,7 +15,7 @@ var LEFT    = '\u001b[D';
 var SPACE   = ' ';
 var UNDO    = '\u001a';
 
-var that = new process.EventEmitter();
+var that = new EventEmitter();
 var buf = '';
 
 var timeout;
